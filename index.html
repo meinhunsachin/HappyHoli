@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Holi S 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="home">
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="colors.html">Colors</a>
+    <a href="facts.html">Holi Facts</a>
+</nav>
+
+<canvas id="canvas"></canvas>
+
+<div class="container">
+    <div class="card">
+        <h1>🌈 Happy Holi S 💖</h1>
+        <p>To the most beautiful girl 💕</p>
+        <button onclick="celebrate()">Celebrate With Me 🎨</button>
+        <p id="loveMsg" class="love-message" style="margin-top:15px;color:#fff;font-size:18px;"></p>
+    </div>
+</div>
+
+<div id="popup" class="popup"></div>
+
+<!-- Holi Music (available on every page) -->
+<audio id="music" controls loop preload="auto" onerror="console.error('audio tag error',this)">
+    <!-- use a relative path so the browser can load the file when served; absolute local paths are blocked -->
+    <source src="songs.mp3" type="audio/mp3">
+    <!-- fallback text for unsupported browsers -->
+    Your browser does not support the audio element.
+</audio>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

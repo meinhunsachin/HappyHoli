@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holi Colors</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="colors">
+<nav>
+    <a href="index.html">Home</a>
+    <a href="colors.html">Colors</a>
+    <a href="facts.html">Holi Facts</a>
+</nav>
+<canvas id="canvas"></canvas>
+<div class="container">
+    <div class="card">
+        <h1>🎨 Play with Colors</h1>
+        <p>Pick a color or let Holi surprise you!</p>
+        <input type="color" id="colorPicker" value="#ff0080">
+        <button onclick="applyColor()">Apply</button>
+        <button onclick="randomColor()">Random</button>
+    </div>
+</div>
+<div id="popup" class="popup"></div>
+<!-- include audio on secondary pages too -->
+<audio id="music" controls loop preload="auto" autoplay muted onerror="console.error('audio tag error',this)">
+    <source src="songs.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<script src="js/main.js"></script>
+<script>
+function applyColor(){
+    const c=document.getElementById('colorPicker').value;
+    document.body.style.background=`linear-gradient(-45deg,${c},#ffffff)`;
+    showMessage(`You chose ${c}! 🥳`);
+    playMusic('music');
+    showFact();
+}
+function randomColor(){
+    const hue=Math.floor(Math.random()*360);
+    const c=`hsl(${hue},100%,50%)`;
+    document.body.style.background=`linear-gradient(-45deg,${c},#ffffff)`;
+    showMessage(`Random splash: ${c}!`);
+    playMusic('music');
+    showFact();
+}
+
+// clicking the color picker itself reveals a fact
+const picker=document.getElementById('colorPicker');
+if(picker){
+    picker.addEventListener('click',()=>{
+        showFact();
+    });
+}
+
+</script>
+</body>
+</html>

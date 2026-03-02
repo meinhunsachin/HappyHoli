@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holi Facts</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="facts">
+<nav>
+    <a href="index.html">Home</a>
+    <a href="colors.html">Colors</a>
+    <a href="facts.html">Holi Facts</a>
+</nav>
+<canvas id="canvas"></canvas>
+<div class="container">
+    <div class="card">
+        <h1>📚 Holi Fun Facts</h1>
+        <p id="fact">Click the button for a surprising fact about Holi!</p>
+        <button onclick="newFact()">Show Fact</button>
+        <p style="margin-top:15px;font-size:14px;color:#fff;">(a new fact will appear above)</p>
+    </div>
+</div>
+<div id="popup" class="popup"></div>
+<!-- Holi music available here as well -->
+<audio id="music" controls loop preload="auto" autoplay muted onerror="console.error('audio tag error',this)">
+    <source src="songs.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<script src="js/main.js"></script>
+<script>
+function newFact(){
+    const f = showFact();
+    document.getElementById('fact').innerText = f;
+}
+// show a fact when page loads
+window.addEventListener('DOMContentLoaded',()=>{
+    showMessage('Ready for a fun fact?');
+    newFact();
+});
+</script>
+</body>
+</html>
